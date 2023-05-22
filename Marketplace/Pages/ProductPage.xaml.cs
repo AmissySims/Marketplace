@@ -15,17 +15,17 @@ namespace Marketplace.Pages
             InitializeComponent();
         }
 
-        private void AddBt_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void AddBt_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddProductPage(new Product()));
         }
 
-        private void Page_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             ProductGD.ItemsSource = App.db.Product.ToList();
         }
 
-        private void EditBt_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void EditBt_Click(object sender, RoutedEventArgs e)
         {
             var selectedProd = ProductGD.SelectedItem as Product;
             if(selectedProd == null)
