@@ -44,11 +44,11 @@ namespace Marketplace.Pages
                 MessageBox.Show("description is null");
                 return;
             }
-            if (string.IsNullOrEmpty(Convert.ToString(contextProduct.Price)))
-            {
-                MessageBox.Show("price is null");
-                return;
-            }
+            //if (string.IsNullOrEmpty(Convert.ToString(contextProduct.Price)))
+            //{
+            //    MessageBox.Show("price is null");
+            //    return;
+            //}
 
             //if (string.IsNullOrEmpty(Convert.ToString(contextProduct.Count)))
             //{
@@ -131,20 +131,20 @@ namespace Marketplace.Pages
             LVPhoto.ItemsSource = contextProduct.ProductPhoto.ToList();
         }
 
-        //private void PriceTb_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
-        //{
-        //    if (!Char.IsDigit(e.Text, 0))
-        //    {
-        //        e.Handled = true;
-        //    }
-        //}
+        private void PriceTb_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
 
-        //private void CountTb_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
-        //{
-        //    if (!Char.IsDigit(e.Text, 0))
-        //    {
-        //        e.Handled = true;
-        //    }
-        //}
+        private void CountTb_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

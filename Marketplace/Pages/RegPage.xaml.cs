@@ -59,7 +59,7 @@ namespace Marketplace.Pages
                     Name = NameTb.Text,
                     Password = PasswordTb.Text,
                     FName = FNameTb.Text,
-                    RoleId = 3,
+                    RoleId = 2,
                     MiddleName = MiddleNameTb.Text,
                     Login = LoginTb.Text
                 };

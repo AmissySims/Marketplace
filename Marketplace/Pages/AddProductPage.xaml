@@ -20,14 +20,16 @@
             <TextBlock Text="Price"/>
             <TextBox x:Name="PriceTb"
                      Text="{Binding Price}"
-                     />
+                     PreviewTextInput="PriceTb_PreviewTextInput"/>
             <TextBlock Text="Description"/>
             <TextBox x:Name="DescTb"
-                     Text="{Binding Description}"/>
+                     Text="{Binding Description}"
+                     Height="50" 
+                     TextWrapping="Wrap"/>
             <TextBlock Text="Count"/>
             <TextBox x:Name="CountTb"
                      Text="{Binding Count}"
-                    />
+                    PreviewTextInput="CountTb_PreviewTextInput"/>
             <TextBlock Text="Provider"/>
             <ComboBox x:Name="CbProviders"
                      DisplayMemberPath="Title"
