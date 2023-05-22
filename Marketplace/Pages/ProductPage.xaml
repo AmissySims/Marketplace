@@ -33,7 +33,17 @@
                     <DataGridTextColumn 
                     Header="Provider" 
                     Binding="{Binding Provider.Title}"/>
+                    <DataGridTemplateColumn Header="Image">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding MainPhoto}"
+                                       RenderOptions.BitmapScalingMode="Fant"
+                                       Width="100"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
+                
             </DataGrid>
         </DockPanel>
        

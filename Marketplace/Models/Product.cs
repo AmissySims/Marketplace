@@ -18,6 +18,7 @@ namespace Marketplace.Models
         public Product()
         {
             this.OrderProduct = new HashSet<OrderProduct>();
+            this.ProductPhoto = new HashSet<ProductPhoto>();
         }
     
         public int Id { get; set; }
@@ -32,5 +33,7 @@ namespace Marketplace.Models
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
         public virtual Provider Provider { get; set; }
         public virtual TypeProduct TypeProduct { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductPhoto> ProductPhoto { get; set; }
     }
 }

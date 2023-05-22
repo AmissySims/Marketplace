@@ -5,16 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d1cd469dead2412a8ba1e930fb740fcd" Name="Diagram1">
-        <EntityTypeShape EntityType="MarketplacePractikModel.DeliveryPoint" Width="1.5" PointX="3" PointY="5" />
-        <EntityTypeShape EntityType="MarketplacePractikModel.DeliveryType" Width="1.5" PointX="3" PointY="7.375" />
+        <EntityTypeShape EntityType="MarketplacePractikModel.DeliveryPoint" Width="1.5" PointX="3" PointY="7.375" />
+        <EntityTypeShape EntityType="MarketplacePractikModel.DeliveryType" Width="1.5" PointX="3" PointY="5" />
         <EntityTypeShape EntityType="MarketplacePractikModel.Order" Width="1.5" PointX="5.25" PointY="1" />
         <EntityTypeShape EntityType="MarketplacePractikModel.OrderProduct" Width="1.5" PointX="7.5" PointY="1.5" />
         <EntityTypeShape EntityType="MarketplacePractikModel.Product" Width="1.5" PointX="5.25" PointY="13" />
-        <EntityTypeShape EntityType="MarketplacePractikModel.Provider" Width="1.5" PointX="3" PointY="14.75" />
+        <EntityTypeShape EntityType="MarketplacePractikModel.ProductPhoto" Width="1.5" PointX="7.5" PointY="13.75" />
+        <EntityTypeShape EntityType="MarketplacePractikModel.Provider" Width="1.5" PointX="3" PointY="12.5" />
         <EntityTypeShape EntityType="MarketplacePractikModel.Role" Width="1.5" PointX="0.75" PointY="1.875" />
         <EntityTypeShape EntityType="MarketplacePractikModel.StatusOrder" Width="1.5" PointX="3" PointY="9.75" />
         <EntityTypeShape EntityType="MarketplacePractikModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" />
-        <EntityTypeShape EntityType="MarketplacePractikModel.TypeProduct" Width="1.5" PointX="3" PointY="12.375" />
+        <EntityTypeShape EntityType="MarketplacePractikModel.TypeProduct" Width="1.5" PointX="3" PointY="15.125" />
         <EntityTypeShape EntityType="MarketplacePractikModel.User" Width="1.5" PointX="3" PointY="1.25" />
         <AssociationConnector Association="MarketplacePractikModel.FK_Order_DeliveryPoint" />
         <AssociationConnector Association="MarketplacePractikModel.FK_Order_DeliveryType" />
@@ -24,6 +25,7 @@
         <AssociationConnector Association="MarketplacePractikModel.FK_OrderProduct_Product" />
         <AssociationConnector Association="MarketplacePractikModel.FK_Product_Provider" />
         <AssociationConnector Association="MarketplacePractikModel.FK_Product_TypeProduct" />
+        <AssociationConnector Association="MarketplacePractikModel.FK_ProductPhoto_Product" />
         <AssociationConnector Association="MarketplacePractikModel.FK_User_Role" />
       </Diagram>
     </edmx:Diagrams>

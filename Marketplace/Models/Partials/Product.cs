@@ -9,10 +9,22 @@ namespace Marketplace.Models
     public partial class Product
     {
        public string FullName
-        {
+       {
             get
             {
                 return $" Title: {Title}, Price: {Price} руб.";
+            }
+       }
+        public byte[] MainPhoto
+        {
+            get
+            {
+                var firstPhoto = this.ProductPhoto.FirstOrDefault();
+                if(firstPhoto != null)
+                {
+                    return firstPhoto.Photo;
+                }
+                return null;
             }
         }
     }

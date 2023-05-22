@@ -30,6 +30,7 @@ namespace Marketplace.Models
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderProduct> OrderProduct { get; set; }
         public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<ProductPhoto> ProductPhoto { get; set; }
         public virtual DbSet<Provider> Provider { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<StatusOrder> StatusOrder { get; set; }

@@ -9,6 +9,10 @@
       Title="AddProductPage">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <StackPanel Margin="10">
             <TextBlock Text="Title"/>
             <TextBox x:Name="TitleTb"
@@ -16,14 +20,14 @@
             <TextBlock Text="Price"/>
             <TextBox x:Name="PriceTb"
                      Text="{Binding Price}"
-                     PreviewTextInput="PriceTb_PreviewTextInput"/>
+                     />
             <TextBlock Text="Description"/>
             <TextBox x:Name="DescTb"
                      Text="{Binding Description}"/>
             <TextBlock Text="Count"/>
             <TextBox x:Name="CountTb"
                      Text="{Binding Count}"
-                     PreviewTextInput="CountTb_PreviewTextInput"/>
+                    />
             <TextBlock Text="Provider"/>
             <ComboBox x:Name="CbProviders"
                      DisplayMemberPath="Title"
@@ -39,5 +43,26 @@
                     Content="cancel"
                     Click="CancelBt_Click"/>
         </StackPanel>
+        <DockPanel Grid.Column="1">
+            <Button x:Name="ImBt" Content="addimage"
+                    DockPanel.Dock="Bottom"
+                    Click="ImBt_Click"/>
+            <ListView x:Name="LVPhoto">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding Photo}"
+                                Width="150"
+                                RenderOptions.BitmapScalingMode="Fant"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+           
+        </DockPanel>
     </Grid>
 </Page>

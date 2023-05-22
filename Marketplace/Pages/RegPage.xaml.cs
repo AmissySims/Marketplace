@@ -26,33 +26,34 @@ namespace Marketplace.Pages
         private void RegBt_Click(object sender, RoutedEventArgs e)
         {
             var check = App.db.User.FirstOrDefault(x => x.Login == LoginTb.Text);
-            if (string.IsNullOrWhiteSpace(NameTb.Text))
+            if (string.IsNullOrWhiteSpace(NameTb.Text.Trim()))
             {
                 MessageBox.Show("Name is null");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(LoginTb.Text))
+            if (string.IsNullOrWhiteSpace(LoginTb.Text.Trim()))
             {
                 MessageBox.Show("Login is null");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(PasswordTb.Text))
+            if (string.IsNullOrWhiteSpace(PasswordTb.Text.Trim()))
             {
                 MessageBox.Show("Password is null");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(FNameTb.Text))
+            if (string.IsNullOrWhiteSpace(FNameTb.Text.Trim()))
             {
                 MessageBox.Show("First name is null");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(MiddleNameTb.Text))
+            if (string.IsNullOrWhiteSpace(MiddleNameTb.Text.Trim()))
             {
                 MessageBox.Show("Middle name is null");
                 return;
             }
             if(check == null)
             {
+
                 User user = new User
                 {
                     Name = NameTb.Text,

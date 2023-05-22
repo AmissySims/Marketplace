@@ -151,6 +151,9 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>MarketplaceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductPhoto.cs">
+      <DependentUpon>MarketplaceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Provider.cs">
       <DependentUpon>MarketplaceModel.tt</DependentUpon>
     </Compile>

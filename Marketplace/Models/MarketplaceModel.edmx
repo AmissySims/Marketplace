@@ -53,6 +53,14 @@
           <Property Name="TypeProductId" Type="int" />
           <Property Name="ProviderId" Type="int" />
         </EntityType>
+        <EntityType Name="ProductPhoto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
         <EntityType Name="Provider">
           <Key>
             <PropertyRef Name="Id" />
@@ -200,6 +208,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ProductPhoto_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="ProductPhoto" Type="Self.ProductPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductPhoto">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_Role">
           <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -218,6 +238,7 @@
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductPhoto" EntityType="Self.ProductPhoto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Provider" EntityType="Self.Provider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StatusOrder" EntityType="Self.StatusOrder" Schema="dbo" store:Type="Tables" />
@@ -256,6 +277,10 @@
             <End Role="TypeProduct" EntitySet="TypeProduct" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
+          <AssociationSet Name="FK_ProductPhoto_Product" Association="Self.FK_ProductPhoto_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductPhoto" EntitySet="ProductPhoto" />
+          </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
@@ -271,6 +296,7 @@
           <EntitySet Name="Order" EntityType="MarketplacePractikModel.Order" />
           <EntitySet Name="OrderProduct" EntityType="MarketplacePractikModel.OrderProduct" />
           <EntitySet Name="Product" EntityType="MarketplacePractikModel.Product" />
+          <EntitySet Name="ProductPhoto" EntityType="MarketplacePractikModel.ProductPhoto" />
           <EntitySet Name="Provider" EntityType="MarketplacePractikModel.Provider" />
           <EntitySet Name="Role" EntityType="MarketplacePractikModel.Role" />
           <EntitySet Name="StatusOrder" EntityType="MarketplacePractikModel.StatusOrder" />
@@ -308,6 +334,10 @@
           <AssociationSet Name="FK_Product_TypeProduct" Association="MarketplacePractikModel.FK_Product_TypeProduct">
             <End Role="TypeProduct" EntitySet="TypeProduct" />
             <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductPhoto_Product" Association="MarketplacePractikModel.FK_ProductPhoto_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductPhoto" EntitySet="ProductPhoto" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="MarketplacePractikModel.FK_User_Role">
             <End Role="Role" EntitySet="Role" />
@@ -373,6 +403,16 @@
           <NavigationProperty Name="OrderProduct" Relationship="MarketplacePractikModel.FK_OrderProduct_Product" FromRole="Product" ToRole="OrderProduct" />
           <NavigationProperty Name="Provider" Relationship="MarketplacePractikModel.FK_Product_Provider" FromRole="Product" ToRole="Provider" />
           <NavigationProperty Name="TypeProduct" Relationship="MarketplacePractikModel.FK_Product_TypeProduct" FromRole="Product" ToRole="TypeProduct" />
+          <NavigationProperty Name="ProductPhoto" Relationship="MarketplacePractikModel.FK_ProductPhoto_Product" FromRole="Product" ToRole="ProductPhoto" />
+        </EntityType>
+        <EntityType Name="ProductPhoto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Product" Relationship="MarketplacePractikModel.FK_ProductPhoto_Product" FromRole="ProductPhoto" ToRole="Product" />
         </EntityType>
         <EntityType Name="Provider">
           <Key>
@@ -527,6 +567,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ProductPhoto_Product">
+          <End Type="MarketplacePractikModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="MarketplacePractikModel.ProductPhoto" Role="ProductPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductPhoto">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_Role">
           <End Type="MarketplacePractikModel.Role" Role="Role" Multiplicity="0..1" />
           <End Type="MarketplacePractikModel.User" Role="User" Multiplicity="*" />
@@ -594,6 +646,15 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductPhoto">
+            <EntityTypeMapping TypeName="MarketplacePractikModel.ProductPhoto">
+              <MappingFragment StoreEntitySet="ProductPhoto">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

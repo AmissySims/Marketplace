@@ -1,6 +1,9 @@
 ﻿using Marketplace.Models;
+using Microsoft.Win32;
 using System;
+using System.ComponentModel;
 using System.Data.Entity.Infrastructure;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +25,7 @@ namespace Marketplace.Pages
             CbType.ItemsSource = App.db.TypeProduct.ToList();
             contextProduct = product;
             DataContext = contextProduct;
+            Refresh();
             if (contextProduct.Id != 0)
             {
                 oldValues = App.db.Entry(contextProduct).CurrentValues.Clone();
@@ -45,14 +49,33 @@ namespace Marketplace.Pages
                 MessageBox.Show("price is null");
                 return;
             }
-            if (string.IsNullOrEmpty(Convert.ToString(contextProduct.Count)))
+
+            //if (string.IsNullOrEmpty(Convert.ToString(contextProduct.Count)))
+            //{
+            //    MessageBox.Show("count is null");
+            //    return;
+            //}
+            if (CountTb.Text == "")
             {
-                MessageBox.Show("count is null");
+                MessageBox.Show("is null count");
                 return;
+
+            }
+            if (PriceTb.Text == "")
+            {
+                MessageBox.Show("is null count");
+                return;
+
             }
             if (contextProduct.Provider == null)
             {
                 MessageBox.Show("is null provider");
+                return;
+
+            }
+            if (contextProduct.Count == null)
+            {
+                MessageBox.Show("is null count");
                 return;
 
             }
@@ -84,20 +107,44 @@ namespace Marketplace.Pages
             NavigationService.GoBack();
         }
 
-        private void PriceTb_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        private void ImBt_Click(object sender, RoutedEventArgs e)
         {
-            if(!Char.IsDigit(e.Text, 0))
+            var dialog = new OpenFileDialog() { Multiselect = true };
+            if(dialog.ShowDialog().GetValueOrDefault())
             {
-                e.Handled = true;
+                foreach(var item in dialog.FileNames)
+                {
+                    contextProduct.ProductPhoto.Add(new ProductPhoto()
+                    {
+                        Photo = File.ReadAllBytes(item),
+                        Product = contextProduct
+                    });
+                }
+                
+                Refresh();
+                DataContext = null;
+                DataContext = contextProduct;
             }
+        }
+        private void Refresh()
+        {
+            LVPhoto.ItemsSource = contextProduct.ProductPhoto.ToList();
         }
 
-        private void CountTb_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
-        {
-            if (!Char.IsDigit(e.Text, 0))
-            {
-                e.Handled = true;
-            }
-        }
+        //private void PriceTb_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        //{
+        //    if (!Char.IsDigit(e.Text, 0))
+        //    {
+        //        e.Handled = true;
+        //    }
+        //}
+
+        //private void CountTb_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        //{
+        //    if (!Char.IsDigit(e.Text, 0))
+        //    {
+        //        e.Handled = true;
+        //    }
+        //}
     }
 }
