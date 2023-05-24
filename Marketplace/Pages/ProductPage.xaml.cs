@@ -30,7 +30,7 @@ namespace Marketplace.Pages
             var selectedProd = ProductGD.SelectedItem as Product;
             if(selectedProd == null)
             {
-                MessageBox.Show("gbv");
+                MessageBox.Show("Choice!");
                 return;
             }
             NavigationService.Navigate(new AddProductPage(selectedProd));
