@@ -22,17 +22,17 @@
                   d:ItemsSource="{d:SampleData ItemCount=8}">
                 <DataGrid.Columns>
                     <DataGridTextColumn 
-                    Header="Title" 
-                    Binding="{Binding Title}"/>
+                        Header="Title" 
+                         Binding="{Binding Title}"/>
                     <DataGridTextColumn 
-                    Header="Price" 
-                    Binding="{Binding Price, StringFormat={}{0} руб.}"/>
+                         Header="Price" 
+                        Binding="{Binding Price, StringFormat={}{0} руб.}"/>
                     <DataGridTextColumn 
-                    Header="Type of Product" 
-                    Binding="{Binding TypeProduct.Title}"/>
+                        Header="Type of Product" 
+                        Binding="{Binding TypeProduct.Title}"/>
                     <DataGridTextColumn 
-                    Header="Provider" 
-                    Binding="{Binding Provider.Title}"/>
+                        Header="Provider" 
+                        Binding="{Binding Provider.Title}"/>
                     <DataGridTemplateColumn Header="Image">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
