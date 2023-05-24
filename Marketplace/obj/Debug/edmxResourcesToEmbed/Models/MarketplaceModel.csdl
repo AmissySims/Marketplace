@@ -278,7 +278,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ProductPhoto_Product">
-    <End Type="MarketplacePractikModel.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="MarketplacePractikModel.Product" Role="Product" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Type="MarketplacePractikModel.ProductPhoto" Role="ProductPhoto" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">

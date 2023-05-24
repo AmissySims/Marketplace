@@ -221,7 +221,7 @@
                      DisplayMemberPath="Title"
                       SelectedItem="{Binding Provider}"/>
             <TextBlock Text="Type"/>
-            <ComboBox x:Name="CbType" Template="{DynamicResource ComboBoxTemplate1}"
+            <ComboBox x:Name="CbType"  Template="{DynamicResource ComboBoxTemplate1}"
                       DisplayMemberPath="Title"
                       SelectedItem="{Binding TypeProduct}"/>
             <Button x:Name="SaveBt" 

@@ -204,7 +204,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ProductPhoto_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="ProductPhoto" Type="Self.ProductPhoto" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">

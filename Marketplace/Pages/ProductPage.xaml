@@ -42,6 +42,8 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
+                    <DataGridTextColumn 
+                        Header="Delete" />
                 </DataGrid.Columns>
                 
             </DataGrid>
