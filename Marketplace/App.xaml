@@ -75,6 +75,7 @@
         <Style TargetType="ComboBox">
             <Setter Property="Background" Value="Aqua"/>
         </Style>-->
-        
+
+        <FontFamily x:Key="CherryBombOne">\Resources\Fonts\#Cherry Bomb One</FontFamily>
     </Application.Resources>
 </Application>
