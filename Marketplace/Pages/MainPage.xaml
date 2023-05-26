@@ -30,6 +30,10 @@
                     Content="Types of products"
                     Click="TypesBt_Click"
                     Margin="5"/>
+            <Button x:Name="StattBt" 
+                    Content="stat" 
+                    Click="StattBt_Click"
+                    Margin="5"/>
         </StackPanel>
         <Frame 
             Grid.Column="1"

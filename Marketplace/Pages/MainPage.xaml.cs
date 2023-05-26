@@ -32,5 +32,10 @@ namespace Marketplace.Pages
         {
             MainFrame2.Navigate(new TypeProductPage());
         }
+
+        private void StattBt_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame2.Navigate(new StatisticPage());
+        }
     }
 }
