@@ -48,6 +48,7 @@ namespace Marketplace.Pages
                     .ToDictionary(key => key.Key, value => value.Count());
                 seria.Points.DataBindXY(chartDate.Keys, chartDate.Values);
                 seria.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+
             }
            
             //var chartDate = App.db.Order.ToList()
