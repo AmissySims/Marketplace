@@ -11,6 +11,34 @@
 
     <Grid>
         <DockPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                <TextBlock Text="Found "/>
+                <TextBox x:Name="FoundTb" 
+                         Width="200"
+                          TextChanged="FoundTb_TextChanged"/>
+                <TextBlock Text="Filter"/>
+                <ComboBox x:Name="FilterCb"
+                          Width="100"
+                          SelectionChanged="FilterCb_SelectionChanged"
+                          SelectedIndex="0">
+                    
+                </ComboBox>
+                <TextBlock Text="Sort"/>
+                <ComboBox x:Name="SortCb"
+                          Width="100"
+                          SelectionChanged="SortCb_SelectionChanged"
+                          SelectedIndex="0">
+
+                </ComboBox>
+                <TextBlock Text="Providers"/>
+                <ComboBox x:Name="ProviderCb"
+                          Width="100"
+                          DisplayMemberPath="Title"
+                          SelectionChanged="ProviderCb_SelectionChanged"
+                          SelectedIndex="0">
+
+                </ComboBox>
+            </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
                 <Button x:Name="AddBt" Content="AddProduct" Click="AddBt_Click"/>
                 <Button x:Name="EditBt" Content="Edit" Click="EditBt_Click"/>
@@ -20,6 +48,7 @@
                   IsReadOnly="True"
                   ColumnWidth="*"
                   d:ItemsSource="{d:SampleData ItemCount=8}">
+                
                 <DataGrid.Columns>
                     <DataGridTextColumn 
                         Header="Title" 
